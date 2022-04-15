@@ -25,3 +25,9 @@ It is important to note that the training RMSEs for all non-parametric models we
 | Decision Tree w/ Default Hyperparameters | 95.5451 | 92.6805 | -3.00 % |
 | Random Forest w/ Randomized Hyperparameter Tuning | 69.2991 | 64.7621 | -6.55% |
 | Gradient Boosted Tree w/ Randomized Hyperparameter Tuning | 39.2181 | 60.8703 | 55.21% |
+
+## Technologies Used
+<img height=50 src="https://www.vectorlogo.zone/logos/python/python-icon.svg"/><img height=50
+src="https://www.vectorlogo.zone/logos/numpy/numpy-icon.svg"/><img height=50
+src="https://raw.githubusercontent.com/devicons/devicon/v2.15.1/icons/pandas/pandas-original.svg"/><img height=50
+src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg"/>
