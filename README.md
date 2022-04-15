@@ -19,7 +19,7 @@ Below is a comparison of how each model performed on the training and testing se
 It is important to note that the training RMSEs for all non-parametric models were constructed using 5-Fold CV due to overfitting concerns whereas the training RMSEs for the parametric models were found using the entire training set.
 
 | Model | Train RMSE | Test RMSE | Percentage Increase |
-| --- | --- | --- | --- |
+| --- | :---: | :---: | :---: |
 | Linear Regression w/ Log-Transformation & Interactions | 88.5667 | 91.5580 | 3.38% |
 | Poisson Regression w/ Log-Link & Interactions | 81.6309 | 82.8643 | 1.51% |
 | Decision Tree w/ Default Hyperparameters | 95.5451 | 92.6805 | -3.00 % |
