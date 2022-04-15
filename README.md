@@ -26,6 +26,9 @@ It is important to note that the training RMSEs for all non-parametric models we
 | Random Forest w/ Randomized Hyperparameter Tuning | 69.2991 | 64.7621 | -6.55% |
 | Gradient Boosted Tree w/ Randomized Hyperparameter Tuning | 39.2181 | 60.8703 | 55.21% |
 
+## Application Preview
+![App Preview](https://thumbs.gfycat.com/PopularLegitimateAbyssiniangroundhornbill-size_restricted.gif)
+
 ## Technologies Used
 <img height=50 src="https://www.vectorlogo.zone/logos/python/python-icon.svg"/><img height=50
 src="https://www.vectorlogo.zone/logos/numpy/numpy-icon.svg"/><img height=50
