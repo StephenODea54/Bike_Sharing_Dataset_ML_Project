@@ -10,7 +10,7 @@ import numpy as np
 import joblib
 
 # To Predict Using the Import Model
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import GradientBoostingRegressor
 
 ### Functions
 # Collect User Input and Put into DataFrame
@@ -127,7 +127,7 @@ st.sidebar.header('User Input')
 # Extract DataFrame from Function
 attributes = inputs()
 
-# Read in GLM
+# Read in GradientBoostingRegressor
 gb = joblib.load('gb_results.pkl')
 
 # Make Predictions
