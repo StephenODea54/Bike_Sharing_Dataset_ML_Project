@@ -7,10 +7,10 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 
 # Model Training
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import GradientBoostingRegressor
 
 # To Save the model
-import pickle
+import joblib
 
 # Read DataFrame from GitHub Repo
 url = 'https://raw.githubusercontent.com/StephenODea54/Bike_Sharing_Dataset_ML_Project/main/Data/hour.csv'
@@ -45,15 +45,17 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 # Instantiate Model
-rf_reg = RandomForestRegressor(
-    random_state = 42,
+gb_reg = GradientBoostingRegressor(
     n_estimators = 1000,
-    max_features = 'log2',
-    max_depth = 90
+    min_samples_leaf = 5,
+    max_features = 0.3,
+    max_depth = 10,
+    learning_rate = 0.01,
+    random_state = 42
 )
 
 # Train Model
-rf_reg.fit(X, y.values.ravel())
+gb_reg.fit(X, y.values.ravel())
 
 # Save Model
-pickle.dump(rf_reg, open('rf_results.pkl', 'wb'))
+joblib.dump(gb_reg, 'gb_results.pkl', compress = 3)

@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 
 # To Import Model
-import pickle
+import joblib
 
 # To Predict Using the Import Model
 from sklearn.ensemble import RandomForestRegressor
@@ -117,7 +117,7 @@ Please note that the minimum and maximum values for temperature are 17.6 and 102
 The data was made publicly available by the company Capital-Bikeshare in Washington D.C. Since making the data public, Fanaee-T, Hadi, and Joao Gama have added weather and seasonal information to the dataset.
 The data may be found at [Bike-Sharing Dataset](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).
 
-The underlying model used for predictions is a Random Forest. For more information on the model and methodology, the relevant files may be found at my github at [GitHub](https://github.com/StephenODea54/Bike_Sharing_Dataset_ML_Project)
+The underlying model used for predictions is a Gradient Boosted Tree. For more information on the model and methodology, the relevant files may be found at my github at [GitHub](https://github.com/StephenODea54/Bike_Sharing_Dataset_ML_Project)
 
 """)
 
@@ -128,10 +128,10 @@ st.sidebar.header('User Input')
 attributes = inputs()
 
 # Read in GLM
-rf = pickle.load(open('rf_results.pkl', 'rb'))
+gb = joblib.load('gb_results.pkl')
 
 # Make Predictions
-prediction = rf.predict(attributes)[0]
+prediction = gb.predict(attributes)[0]
 
 # Write Predictions to Screen
 st.subheader('The Predicted Number of Bicycle Rentals is: {0:.2f}'.format(prediction))
