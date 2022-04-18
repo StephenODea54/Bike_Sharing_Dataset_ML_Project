@@ -20,7 +20,7 @@ def inputs():
     hr = st.sidebar.selectbox('Hour', ('12 AM', '1 AM', '2 AM', '3 AM', '4 AM', '5 AM', '6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM', '11 PM'))
     weekday = st.sidebar.selectbox('Day of the Week', ('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'))
     workingday = st.sidebar.selectbox('Holiday or Weekend?', ('Yes', 'No'))
-    hum = st.sidebar.number_input(label = 'Humidity (%)', min_value = 0, max_value = 1)
+    hum = st.sidebar.number_input(label = 'Humidity', min_value = 0, max_value = 100)
     weathersit = st.sidebar.selectbox('Weather', ('Clear, Few Clouds, Partly Cloudy', 'Mist + Cloudy, Mist + Broken Clouds, Mist + Few Clouds, Mist', 'Light Snow, Light Rain + Thunderstorm + Scattered Clouds, Light Rain + Scattered Clouds'))
     temp = st.sidebar.number_input(label = 'Temperature (F)', min_value = 17.6, max_value = 102.2)
     windspeed = st.sidebar.number_input(label = 'Windspeed (MPH)', min_value = 0, max_value = 67)
@@ -32,6 +32,9 @@ def inputs():
 
     # Windspeed: Normalize to 67
     windspeed_normalized = windspeed / 67
+
+    # Humidity: Normalize to 100
+    hum_normalized = hum / 100
 
     # Map Categorical Inputs
     season_mapper = {'Winter': 1,
@@ -84,14 +87,14 @@ def inputs():
             'hr': hr,
             'weekday': weekday,
             'workingday': workingday,
-            'hum': hum,
             'weathersit': weathersit,
             'temp': temp_normalized,
+            'hum': hum_normalized,
             'windspeed': windspeed_normalized}
 
     # Create DataFrame from Dictionary
     # Use index = [0] since all are scalar values
-    attributes = pd.DataFrame(data, columns = ['season', 'hr', 'weekday', 'workingday', 'hum', 'weathersit', 'temp', 'windspeed'], index = [0])
+    attributes = pd.DataFrame(data, columns = ['season', 'hr', 'weekday', 'workingday', 'weathersit', 'temp', 'hum', 'windspeed'], index = [0])
 
     # Map Levels onto Attributes
     attributes['season'] = attributes['season'].map(season_mapper)
@@ -127,7 +130,7 @@ st.sidebar.header('User Input')
 # Extract DataFrame from Function
 attributes = inputs()
 
-# Read in GradientBoostingRegressor
+# Read in Gradient Boosted Model
 gb = joblib.load('gb_results.pkl')
 
 # Make Predictions
